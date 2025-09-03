@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Tours - Sikkim Tourism</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@5/dist/photo-sphere-viewer.css">
+  <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
+</head>
+<body>
+
+  <header>
+    <!-- Navbar copied again -->
+    <nav class="navbar">
+      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="virtual.html">Virtual Tours</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section dark">
+    <h2>Visual Tours</h2>
+    <p>Explore these monasteries in 360° virtual tours.</p>
+    <div class="pano-container">
+      <div class="pano" id="pano1" data-src="panos/pemayangtse.jpg">Pemayangtse Monastery</div>
+      <div class="pano" id="pano2" data-src="panos/sangachoeling.jpg">Sangachoeling Monastery</div>
+      <div class="pano" id="pano3" data-src="panos/tsuklakhang.jpg">Tsuklakhang Monastery</div>
+      <div class="pano" id="pano4" data-src="panos/enchey.jpg">Enchey Monastery</div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
