@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cultural Calendar - Sikkim Tourism</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="virtual.html">Virtual Tours</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li class="active"><a href="calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="section light">
+    <h2>Sikkim Cultural Calendar</h2>
+    <div id="calendar-container"></div>
+  </section>
+
+  <script>
+    // Initialize Calendar
+    document.addEventListener('DOMContentLoaded', function () {
+      const calendarEl = document.getElementById('calendar-container');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: [
+          { title: 'Losar Festival', start: '2025-02-27' },
+          { title: 'Saga Dawa', start: '2025-06-15' },
+          { title: 'Pang Lhabsol', start: '2025-09-11' }
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+
+</body>
+</html>
