@@ -1,0 +1,334 @@
+/* ================================
+   SIKKIM TOURISM — Animated Theme
+   Works with your existing HTML
+   Fonts used: Inter, Rock Salt
+   ================================ */
+
+/* ---------- CSS Variables ---------- */
+:root{
+  --bg: #0b1016;
+  --bg-2: #0f1622;
+  --text: #f3f6fb;
+  --muted: #b7c2d0;
+  --accent: #46d1b9;        /* teal */
+  --accent-2: #ffb86b;      /* warm highlight */
+  --card: #121a25;
+  --glass: rgba(255,255,255,.06);
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 8px 30px rgba(0,0,0,.45);
+  --radius: 18px;
+  --trans-1: 220ms cubic-bezier(.2,.8,.2,1);
+  --trans-2: 500ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* ---------- Base Reset ---------- */
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+img{ display:block; max-width:100%; height:auto; }
+button{ font: inherit; cursor: pointer; }
+a{ color: inherit; text-decoration: none; }
+
+/* ---------- Body / Typography ---------- */
+body{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 1200px at 10% -10%, #1c2740 0%, #0c1220 40%, #0a0f18 70%, #080c14 100%),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+/* Brush title vibe */
+.title{
+  font-family: "Rock Salt", cursive;
+  letter-spacing: .5px;
+}
+
+/* ---------- Navbar (Glassy + Underlines) ---------- */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar{
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(9,14,22,.75), rgba(9,14,22,.45));
+  border-bottom: 1px solid var(--stroke);
+}
+
+.nav-left .wheel{
+  width: 56px; height: 56px; object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+  transition: transform 900ms cubic-bezier(.22,1,.36,1);
+}
+.nav-left .wheel:hover{ transform: rotate(360deg) scale(1.04); }
+
+.nav-center{
+  list-style: none; display: flex; justify-content: center; gap: 10px; padding: 0; margin: 0;
+  flex-wrap: wrap;
+}
+.nav-center li a{
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: 12px;
+  position: relative;
+  color: var(--muted);
+  transition: color var(--trans-1), transform var(--trans-1);
+}
+.nav-center li a::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:6px; height:2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--trans-2);
+  border-radius: 2px;
+  opacity: .9;
+}
+.nav-center li:hover a,
+.nav-center li.active a{ color: var(--text); transform: translateY(-1px); }
+.nav-center li:hover a::after,
+.nav-center li.active a::after{ transform: scaleX(1); }
+
+.nav-right .nav-btn{
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent) 0%, #6ee7d8 100%);
+  color: #08221e; font-weight: 700; letter-spacing: .2px;
+  border: 0;
+  box-shadow: 0 10px 20px rgba(70,209,185,.25);
+  transition: transform var(--trans-1), box-shadow var(--trans-1);
+}
+.nav-right .nav-btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 26px rgba(70,209,185,.32); }
+
+/* ---------- Hero (Ken Burns + Animated Gradient) ---------- */
+.hero{
+  position: relative; height: 78vh; min-height: 520px; overflow: hidden;
+  border-bottom: 1px solid var(--stroke);
+}
+.hero-img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.08);
+  animation: kenburns 20s ease-in-out both infinite alternate;
+  filter: saturate(1.05) contrast(1.02) brightness(.98);
+}
+.overlay{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(1200px 600px at 80% 0%, rgba(0,0,0,.35) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(5,9,16,.6) 0%, rgba(5,9,16,.4) 40%, rgba(5,9,16,.85) 100%),
+    conic-gradient(from 180deg at 50% 50%, rgba(70,209,185,.12), rgba(255,184,107,.12), rgba(70,209,185,.12));
+  mix-blend-mode: normal;
+  animation: overlayGlow 14s ease-in-out infinite alternate;
+}
+.hero-text{
+  position: relative; z-index: 2;
+  height: 100%; width: 100%;
+  display: grid; place-content: center; text-align: center; padding: 0 16px;
+}
+.hero-text .title{
+  font-size: clamp(42px, 6vw, 84px);
+  margin: 0 0 10px;
+  text-shadow: 0 8px 28px rgba(0,0,0,.55);
+  animation: floatUp 900ms var(--trans-2) both, shimmer 6s linear infinite;
+}
+.hero-text .subtitle{
+  margin: 0; font-size: clamp(16px, 2.4vw, 22px); color: var(--muted);
+  animation: floatUp 1100ms var(--trans-2) both;
+  animation-delay: .08s;
+}
+
+/* ---------- Sections ---------- */
+.section{
+  padding: 64px min(6vw, 60px);
+}
+.section.light{
+  background: radial-gradient(900px 700px at 15% 0%, #101a2b 0%, #0d1524 40%, transparent 70%),
+              linear-gradient(180deg, #0a121e 0%, #0b111a 100%);
+}
+.section.dark{
+  background: radial-gradient(900px 700px at 85% 0%, #0f1726 0%, #0b111c 40%, transparent 70%),
+              linear-gradient(180deg, #0a1018 0%, #0a0f17 100%);
+}
+
+/* ---------- Pano Cards (tilt + glow) ---------- */
+.pano-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  perspective: 900px;
+}
+.pano{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  transition: transform var(--trans-2), box-shadow var(--trans-2), border-color var(--trans-1);
+  position: relative; overflow: hidden;
+}
+.pano::before{
+  content:""; position:absolute; inset: -40%;
+  background: radial-gradient(450px 220px at var(--mx,60%) var(--my,40%), rgba(70,209,185,.12), transparent 60%);
+  transform: translateZ(20px);
+  transition: opacity var(--trans-1);
+  opacity: 0;
+}
+.pano:hover{
+  transform: rotateX(6deg) rotateY(-6deg) translateY(-4px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  border-color: rgba(70,209,185,.45);
+}
+.pano:hover::before{ opacity: 1; }
+
+/* Optional mouse-follow glow (no JS required on most browsers) */
+.pano:hover{ --mx: 50%; --my: 40%; }
+
+/* ---------- Map Layout ---------- */
+.map-wrapper{
+  display: grid; grid-template-columns: 1.3fr .9fr; gap: 18px;
+}
+#mapid{
+  height: 60vh; min-height: 420px;
+  border-radius: var(--radius);
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.map-controls{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  animation: slideIn 700ms var(--trans-2) both;
+}
+.map-controls h3{ margin-top: 0; }
+.map-controls p{ color: var(--muted); margin-top: 4px; }
+
+.map-controls button{
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--trans-1), border-color var(--trans-1);
+}
+.map-controls button:hover{
+  transform: translateY(-2px);
+  border-color: rgba(70,209,185,.5);
+}
+.map-controls button::after{
+  content:""; position:absolute; inset: 0;
+  background: radial-gradient(160px 80px at var(--x,50%) var(--y,50%), rgba(255,255,255,.12), transparent 60%);
+  opacity: 0; transition: opacity var(--trans-1);
+}
+.map-controls button:hover::after{ opacity: 1; }
+
+.route-btn{
+  background: linear-gradient(135deg, var(--accent) 0%, #6ee7d8 100%) !important;
+  color: #08221e !important; font-weight: 700;
+  border: none !important;
+  box-shadow: 0 10px 20px rgba(70,209,185,.25);
+}
+.transport-box{
+  margin-top: 14px; padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255,255,255,.18);
+  color: var(--muted);
+}
+
+/* ---------- Archive Gallery ---------- */
+.archive-gallery{
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.archive-gallery img{
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  transform: translateZ(0);
+  transition: transform var(--trans-2), filter var(--trans-2), box-shadow var(--trans-2), border-color var(--trans-1);
+  filter: saturate(1.02) contrast(1.02);
+}
+.archive-gallery img:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  border-color: rgba(255,184,107,.5);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+/* ---------- Calendar Styles ---------- */
+#calendar-container{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+.fc .fc-toolbar-title{ letter-spacing: .3px; }
+.fc .fc-button{
+  border-radius: 10px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  background: rgba(255,255,255,.06) !important;
+  transition: transform var(--trans-1) !important;
+}
+.fc .fc-button:hover{ transform: translateY(-2px); }
+.fc .fc-daygrid-day-number{ color: var(--muted); }
+.fc-theme-standard td, .fc-theme-standard th{ border-color: rgba(255,255,255,.08); }
+
+/* ---------- Utility Animations ---------- */
+@keyframes kenburns{
+  0% { transform: scale(1.08) translate3d(0,0,0); }
+  100%{ transform: scale(1.18) translate3d(2%, -2%, 0); }
+}
+@keyframes overlayGlow{
+  0% { opacity:.9; filter: hue-rotate(0deg); }
+  100%{ opacity:1;  filter: hue-rotate(20deg); }
+}
+@keyframes floatUp{
+  from{ opacity:0; transform: translateY(16px); }
+  to  { opacity:1; transform: translateY(0); }
+}
+@keyframes shimmer{
+  0% { text-shadow: 0 8px 28px rgba(0,0,0,.55), 0 0 0 rgba(70,209,185,0); }
+  50%{ text-shadow: 0 8px 28px rgba(0,0,0,.55), 0 0 22px rgba(70,209,185,.35); }
+  100%{ text-shadow: 0 8px 28px rgba(0,0,0,.55), 0 0 0 rgba(70,209,185,0); }
+}
+@keyframes slideIn{
+  from{ opacity:0; transform: translateY(12px); }
+  to  { opacity:1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .map-wrapper{ grid-template-columns: 1fr; }
+  #mapid{ height: 54vh; }
+}
+
+@media (max-width: 720px){
+  .navbar{ grid-template-columns: 120px 1fr; grid-template-areas: "left right" "center center"; row-gap: 8px; }
+  .nav-left{ grid-area: left; }
+  .nav-center{ grid-area: center; justify-content: flex-start; overflow-x: auto; white-space: nowrap; padding-bottom: 6px; }
+  .nav-right{ grid-area: right; justify-self: end; }
+  .section{ padding: 48px 18px; }
+}
+
+/* ---------- Nice focus rings ---------- */
+:focus-visible{
+  outline: 2px solid color-mix(in oklab, var(--accent) 70%, white 30%);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ---------- Optional: smooth scrolling ---------- */
+html{ scroll-behavior: smooth; }
