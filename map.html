@@ -4,62 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Map - Sikkim Tourism</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="map-styles.css">
 
   <!-- Leaflet for Map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet Routing Machine -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+  />
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
-      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
       <ul class="nav-center">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="virtual.html">Virtual Tours</a></li>
+        <li><a href="virtual.html">Virtual</a></li>
         <li class="active"><a href="map.html">Map</a></li>
-        <li><a href="archive.html">Archive</a></li>
         <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="archive.html">Archive</a></li>
       </ul>
+      <div class="nav-right">
+        <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+      </div>
     </nav>
   </header>
 
+  <!-- MAP SECTION -->
   <section class="section light">
-    <h2>Map</h2>
+    <h2>Explore Monasteries on Map</h2>
     <div class="map-wrapper">
+      
       <!-- Map -->
       <div id="mapid"></div>
 
       <!-- Controls -->
       <div class="map-controls">
         <h3>Plan Your Tour</h3>
-        <p>Select monuments to add them to your tour and calculate best route.</p>
+        <p>Select monasteries to add them to your tour and calculate the best route.</p>
 
-        <!-- Add monuments -->
-        <button onclick="addToTour('Pemayangtse Monastery', 27.3171, 88.2335)">
-          Add Pemayangtse Monastery
-        </button>
-        <button onclick="addToTour('Sangachoeling Monastery', 27.3094, 88.2253)">
-          Add Sangachoeling Monastery
-        </button>
-        <button onclick="addToTour('Tsuklakhang Monastery', 27.3333, 88.6167)">
-          Add Tsuklakhang Monastery
-        </button>
-        <button onclick="addToTour('Enchey Monastery', 27.3383, 88.6062)">
-          Add Enchey Monastery
-        </button>
+        <!-- Add Monuments -->
+        <button class="control-btn" onclick="addToTour('Pemayangtse Monastery', 27.3171, 88.2335)">➕ Pemayangtse</button>
+        <button class="control-btn" onclick="addToTour('Sangachoeling Monastery', 27.3094, 88.2253)">➕ Sangachoeling</button>
+        <button class="control-btn" onclick="addToTour('Tsuklakhang Monastery', 27.3333, 88.6167)">➕ Tsuklakhang</button>
+        <button class="control-btn" onclick="addToTour('Enchey Monastery', 27.3383, 88.6062)">➕ Enchey</button>
 
-        <!-- Show Route -->
-        <button class="route-btn" onclick="showRoute()">Show Route</button>
+        <!-- Route + Reset + Remove -->
+        <button class="route-btn" onclick="showRoute()">📍 Show Route</button>
+        <button class="reset-btn" onclick="resetTour()">🔄 Reset</button>
+        <button class="remove-btn" onclick="removeLastStop()">🗑 Remove Last</button>
 
-        <!-- Transport Recommendation -->
-        <div id="transport" class="transport-box"></div>
+        <!-- Transport & History -->
+        <div id="transport" class="transport-box">No route planned yet.</div>
+        <div id="history" class="history-box">History: 0 routes planned</div>
       </div>
     </div>
   </section>
 
-  <script src="script.js"></script>
+      <!-- FLOATING CHATBOT -->
+    <div class="chatbot-button" id="chatbot-btn">
+    <img src="AI-bot.png" alt="Chatbot">
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">Ask Monastery360</div>
+    <div class="chat-messages" id="chat-messages">
+        <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+    </div>
+
+  <!-- JS -->
+  <script src="map-script.js"></script>
 </body>
 </html>
