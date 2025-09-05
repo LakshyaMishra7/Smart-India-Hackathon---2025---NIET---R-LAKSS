@@ -1,1 +1,106 @@
-#
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Sikkim Tourism</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="about-styles.css">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="virtual.html">Virtual</a></li>
+        <li class="active"><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="explore.html">Explore</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+      </div>
+    </nav>
+  </header>
+
+<!-- Hero Banner -->
+<section class="about-hero">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1>About Sikkim’s Monasteries</h1>
+    <p>Discover the culture, spirituality, and timeless heritage of the Himalayas</p>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-text">
+      <h2>Spiritual Heritage</h2>
+      <p>
+        Sikkim’s monasteries are not only places of worship but living cultural landmarks. 
+        They preserve centuries-old Buddhist traditions, sacred rituals, and timeless teachings 
+        that continue to guide generations in harmony and peace.
+      </p>
+      <p>
+        Each monastery tells a story through its murals, manuscripts, and festivals—offering 
+        both spiritual solace and a glimpse into Sikkim’s cultural richness.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="quote.png" alt="Sikkim Monastery">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="about-features">
+    <div class="feature-card">
+      <i class="fa-solid fa-spa"></i>
+      <h3>Peace & Meditation</h3>
+      <p>Experience the calmness of chanting monks and meditation rituals in serene monastery settings.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-gopuram"></i>
+      <h3>Architectural Beauty</h3>
+      <p>Marvel at vibrant murals, sacred stupas, and Tibetan-inspired architecture.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-calendar-days"></i>
+      <h3>Festivals</h3>
+      <p>Witness Cham dances, mask performances, and colorful celebrations of Buddhist traditions.</p>
+    </div>
+  </section>
+
+            <!-- FLOATING CHATBOT -->
+    <div class="chatbot-button" id="chatbot-btn">
+    <img src="AI-bot.png" alt="Chatbot">
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">Ask Monastery360</div>
+    <div class="chat-messages" id="chat-messages">
+        <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-btn">
+        </button>
+    </div>
+    </div>
+
+    </div>
+  </section>
+
+  <script src="about-script.js"></script>
+
+</body>
+</html>
+
+
