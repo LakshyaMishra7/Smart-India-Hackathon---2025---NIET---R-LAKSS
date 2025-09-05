@@ -4,73 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Virtual Tours - Sikkim Tourism</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="virtual-styles.css">
 
   <!-- Model Viewer for .glb -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar">
-      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
       <ul class="nav-center">
         <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="virtual.html">Virtual</a></li>
         <li><a href="about.html">About</a></li>
-        <li class="active"><a href="virtual.html">Virtual Tours</a></li>
         <li><a href="map.html">Map</a></li>
-        <li><a href="archive.html">Archive</a></li>
         <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li><a href="explore.html">Explore</a></li>
       </ul>
+      <div class="nav-right">
+        <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+      </div>
     </nav>
   </header>
 
-  <!-- 3D Model with Clouds -->
-  <section class="section dark model-section">
-    <h2>3D Monastery Model</h2>
-    <div class="model-container">
-      <model-viewer src="56f23033-0cc6-47b1-8d4d-9584a1357bf7%20(1).glb"
-        alt="3D Monastery"
-        auto-rotate
-        camera-controls
-        shadow-intensity="1"
-        exposure="1"
-        skybox-image="clouds.jpg"
-        style="width: 100%; height: 500px;">
-      </model-viewer>
-    </div>
-  </section>
-
-  <!-- Google Street View -->
+  <!-- Google Street View with Small Rotating Monastery -->
   <section class="section light">
-    <h2>Explore Monasteries in Street View</h2>
+    <div class="streetview-header">
+      <h2>Explore Monasteries in Street View</h2>
+
+      <!-- Wrapper to hold model and animated cloud overlay -->
+      <div class="model-wrapper">
+        <model-viewer src="Monastery-model-3-D.glb"
+          alt="3D Monastery"
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="20deg"
+          shadow-intensity="1"
+        exposure="1">
+        </model-viewer>
+
+        <!-- Animated cloud overlay -->
+        <img src="cloud-overlay.png" alt="Cloud Overlay" class="model-overlay cloud-animation">
+      </div>
+    </div>
+
+
     <div class="streetview-container">
       <div class="streetview">
         <h3>Pemayangtse Monastery</h3>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1756968920933!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ0U3SXFEeFFF!2m2!1d27.30426034149243!2d88.30153660084635!3f343.11193318988853!4f-3.9303660196211325!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!4v1756968920933!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ0U3SXFEeFFF!2m2!1d27.30426034149243!2d88.30153660084635!3f343.11193318988853!4f-3.9303660196211325!5f0.4000000000000002"
           width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
+
       <div class="streetview">
         <h3>Sangachoeling Monastery</h3>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v... (replace with Sangachoeling StreetView URL)"
+          src="https://www.google.com/maps/embed?pb=!4v1756995671010!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDJ6OW1GbndF!2m2!1d27.29781227835666!2d88.22164837000456!3f250.89291273804648!4f0.37443773074591036!5f0.4000000000000002" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
+
       <div class="streetview">
         <h3>Tsuklakhang Monastery</h3>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v... (replace with Tsuklakhang StreetView URL)"
+          src="https://www.google.com/maps/embed?pb=!4v1756996006065!6m8!1m7!1sEPQJffAmE8DMLZqJNuBvww!2m2!1d27.32581459802226!2d88.61421032737204!3f45.04502684692676!4f10.773022162684882!5f0.6053777457764989" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
+
       <div class="streetview">
         <h3>Enchey Monastery</h3>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v... (replace with Enchey StreetView URL)"
+          src="https://www.google.com/maps/embed?pb=!4v1756996073721!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJQ0pzTXEzOWdF!2m2!1d27.33593677395685!2d88.61916587167339!3f38.72260131732668!4f7.603209912315251!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script src="virtual-script.js"></script>
 </body>
 </html>
