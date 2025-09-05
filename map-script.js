@@ -196,4 +196,3 @@ if (chatInput) {
     if (e.key === "Enter") sendBtn.click();
   });
 }
-
