@@ -125,7 +125,7 @@ body {
 .about-hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(42, 37, 37, 0.7);
 }
 
 .hero-text {
