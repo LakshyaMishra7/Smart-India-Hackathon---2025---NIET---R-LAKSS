@@ -1,0 +1,340 @@
+/* ================================
+   ARCHIVE-STYLES.CSS — Pastel/Translucent Interactive
+   ================================ */
+
+:root {
+  --mint: #77DD77;
+  --cream: #FDFBD4;
+  --aqua: #B3EBF2;
+  --pink: #FFB7C5;
+  --white: #ffffff;
+  --text: #0d0d0a;
+  --muted: rgba(13,13,10,0.55);
+
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --gap: 1.25rem;
+  --container-w: 1200px;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; scroll-behavior: smooth; }
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--cream) 0%, #FFFDF6 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 86px; /* Navbar space */
+  overflow-x: hidden;
+}
+
+/* ======================
+   NAVBAR (Translucent)
+   ====================== */
+.navbar {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: var(--container-w);
+  height: 64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(13,13,10,0.06);
+  border: 1px solid rgba(13,13,10,0.03);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+.nav-left { display:flex; align-items:center; gap:12px; }
+.nav-left .wheel {
+  width:42px; height:42px; border-radius:10px; object-fit:cover;
+  padding:6px;
+  box-shadow: 0 6px 18px rgba(13,13,10,0.06);
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-center li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 8px 10px;
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.nav-center li.active a,
+.nav-center li a:hover {
+  background: rgba(119, 221, 119, 0.12);
+  transform: translateY(-2px);
+}
+
+.nav-right #narrator-btn {
+  background: linear-gradient(180deg, var(--mint), #66cc66);
+  color: var(--white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(13,13,10,0.06);
+  cursor:pointer;
+  display:flex; gap:8px; align-items:center;
+  transition: transform 200ms ease, opacity 160ms ease;
+}
+.nav-right #narrator-btn:hover { transform: translateY(-3px); opacity:0.98; }
+
+/* ======================
+   HERO IMAGE & PARALLAX
+   ====================== */
+.hero-image {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  transition: transform 0.2s ease-out;
+}
+.hero-text {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  animation: fadeInUp 1s ease both;
+}
+
+/* Parallax scroll */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ======================
+   ARCHIVE ROW / CARDS
+   ====================== */
+.archive-row {
+  max-width: var(--container-w);
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.archive-column {
+  background: rgba(255,255,255,0.75);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 30px rgba(13,13,10,0.06);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(13,13,10,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.archive-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(13,13,10,0.1);
+}
+
+/* Archive images */
+.archive-column img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.archive-column img:hover {
+  transform: scale(1.04);
+}
+
+/* Headings & text */
+.archive-column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.archive-column h3 {
+  font-size: 1.1rem;
+  margin: 8px 0 6px;
+  color: var(--text);
+}
+.archive-column p, .archive-column ul {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* Narration buttons on each card */
+.archive-column .card-narrate {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(180deg, var(--aqua), #66d1ee);
+  color: var(--white);
+  border:none;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+  font-size: 0.85rem;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(13,13,10,0.06);
+  transition: transform 0.2s ease;
+}
+.archive-column .card-narrate:hover {
+  transform: translateY(-2px);
+}
+
+.chatbot-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border: 4px solid #0d0d0a; /* dark border */
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(13, 13, 10, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.chatbot-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.chatbot-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(13, 13, 10, 0.25);
+}
+
+.chatbot-window{
+  position: fixed;
+  bottom: 92px;
+  right: 22px;
+  width: 320px;
+  max-height: 420px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, rgba(253,251,212,0.95));
+  border: 1px solid rgba(13,13,10,0.04);
+  box-shadow: 0 18px 40px rgba(13,13,10,0.08);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+.chatbot-window.open{ display:flex; animation: slideUp 300ms ease; }
+
+@keyframes slideUp {
+  from{ transform: translateY(18px); opacity:0; }
+  to{ transform: translateY(0); opacity:1; }
+}
+
+/* header/messages/input */
+.chat-header{ padding:12px 14px; font-weight:700; border-bottom:1px solid rgba(13,13,10,0.02); color:var(--text); }
+.chat-messages{ padding:12px; overflow:auto; flex:1; font-size:13px; color:var(--text); }
+.chat-input-container{ padding:10px; display:flex; gap:8px; border-top:1px solid rgba(13,13,10,0.02); }
+.chat-input-container input{
+  flex:1; padding:10px 12px; border-radius:999px; border:1px solid rgba(13,13,10,0.06);
+  outline:none;
+}
+.chat-input-container button{
+  background: linear-gradient(180deg,var(--mint), #66cc66);
+  border:none; color:white; padding:8px 12px; border-radius:999px; cursor:pointer;
+}
+
+/* Chatbot Window Animation */
+.chatbot-window {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 300px;
+  max-height: 400px;
+  background: #fdfbd4;
+  border: 2px solid #0d0d0a;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(13, 13, 10, 0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chatbot-window.open {
+  display: flex;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================
+   FLOATING ICONS (background decoration)
+   ====================== */
+.floating-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  opacity: 0.15;
+  animation: floaty 12s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(15deg); }
+}
+
+/* ======================
+   ANIMATIONS
+   ====================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+@media (max-width: 768px) {
+  .hero-text { font-size: 1.6rem; bottom: 24px; left: 16px; }
+  .archive-row { gap: 16px; }
+  .archive-column { padding: 16px; }
+  .archive-column h2 { font-size: 1.3rem; }
+  .archive-column h3 { font-size: 1rem; }
+  .archive-column p, .archive-column ul { font-size: 0.9rem; }
+  .nav-center { gap: 12px; font-size: 14px; }
+}
