@@ -5,45 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sikkim Tourism - Home</title>
 
-  <!-- Fonts, CSS & Libraries -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
+      <div class="nav-right-container">
+        <ul class="nav-right">
+          <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#problem"><i class="fa-solid fa-seedling"></i> About</a></li>
+          <li><a href="#explore"><i class="fa-solid fa-compass"></i> Explore</a></li>
+        </ul>
+        <!-- Narrator Button (Moved Here) -->
+        <button id="narrator-btn">
+          <i class="fa-solid fa-volume-high"></i> Narrator: ON
+        </button>
+      </div>
+    </nav>
+  </header>
+
+    <section id="home" class="hero">
+        <img src="cover-sikkim-home.jpg" alt="Sikkim cover" class="hero-img">
+        <div class="overlay"></div>
+
+        <div class="hero-text">
+            <h1 class="title">Sikkim</h1>
+            <p class="subtitle">Land of monasteries and peace!</p>
+        </div>
+    </section>
+
+
+  <!-- PROBLEM SECTION -->
+  <section id="problem" class="problem-section">
+    <div class="container">
+      <h2>Problem Statement</h2>
+      <p>Sikkim is home to over 200 monasteries, many of which date back to the 17th and 18th centuries.
+        These monasteries are rich in history, architecture, and spiritual significance.
+        While some efforts have been made to preserve murals and digitize rare documents,
+        there is no unified digital platform that offers tourists and researchers immersive access
+        to these cultural treasures.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section class="solution-section">
+    <div class="container">
+      <h2>Proposed Solution</h2>
+      <h3>Monastery360: A Digital Heritage Platform for Sikkim’s Monasteries</h3>
+      <ul class="feature-list">
+        <li>Virtual Tours: 360° panoramic views of monastery interiors and surroundings.</li>
+        <li>Narrated walkthroughs in multiple languages.</li>
+        <li>Interactive Map: Geo-tagged monastery locations with travel routes and nearby attractions.</li>
+        <li>Integration with local transport and tourism services.</li>
+        <li>Digital Archives: Scanned manuscripts, murals, and historical documents.</li>
+        <li>AI-powered search and categorization.</li>
+        <li>Smart Audio Guide App: Location-based audio guides using Bluetooth beacons or GPS.</li>
+        <li>Offline mode for remote areas.</li>
+        <li>Cultural Calendar: Events, festivals, and rituals schedule.</li>
+        <li>Booking and participation options for tourists.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4 CARD CAROUSEL -->
+  <section id="explore" class="feature-carousel">
+    <h2>Explore Our Features</h2>
+    <div class="carousel-container">
+      <div class="card">
+        <h3>Virtual Tour</h3>
+        <p>360° panoramic views of monasteries and surroundings.</p>
+        <a href="virtual.html" class="btn">Explore!</a>
+      </div>
+
+      <div class="card">
+        <h3>Maps</h3>
+        <p>Geo-tagged monastery locations with travel routes.</p>
+        <a href="map.html" class="btn">Explore!</a>
+      </div>
+
+      <div class="card">
+        <h3>Cultural Calendar</h3>
+        <p>Events, festivals, with dates and descriptions.</p>
+        <a href="calendar.html" class="btn">Explore!</a>
+      </div>
+
+      <div class="card">
+        <h3>Digi Archive</h3>
+        <p>Scanned manuscripts, murals, and historical documents.</p>
+        <a href="archive.html" class="btn">Explore!</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- FLOATING CHATBOT -->
+    <div class="chatbot-button" id="chatbot-btn">
+    <img src="AI-bot.png" alt="Chatbot">
     </div>
 
-    <ul class="nav-center">
-      <li class="active"><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="about.html"><i class="fa-solid fa-seedling"></i> About</a></li>
-      <li><a href="virtual.html"><i class="fa-solid fa-vr-cardboard"></i> Virtual Tours</a></li>
-      <li><a href="map.html"><i class="fa-solid fa-map-location-dot"></i> Map</a></li>
-      <li><a href="archive.html"><i class="fa-solid fa-box-archive"></i> Archive</a></li>
-      <li><a href="calendar.html"><i class="fa-solid fa-calendar-days"></i> Calendar</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <a href="explore.html" class="nav-btn">Explore</a>
+    <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">Ask Monastery360</div>
+    <div class="chat-messages" id="chat-messages">
+        <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
     </div>
-  </nav>
-</header>
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+    </div>
 
-<section id="home" class="hero">
-  <div class="overlay"></div>
-  <img src="cover-sikkim-home.jpg" alt="Sikkim cover" class="hero-img">
-  <div class="hero-text">
-    <h1 class="title">Sikkim</h1>
-    <p class="subtitle">Land of monasteries and peace!</p>
-  </div>
-</section>
 
+  <script src="script.js"></script>
 </body>
 </html>
