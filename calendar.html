@@ -4,48 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cultural Calendar - Sikkim Tourism</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="calendar-styles.css">
 
   <!-- FullCalendar -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+
+  <!-- SwiperJS for Photo Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
 </head>
 <body>
 
   <header>
     <nav class="navbar">
-      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
       <ul class="nav-center">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="virtual.html">Virtual Tours</a></li>
-        <li><a href="map.html">Map</a></li>
+        <li><a href="virtual.html">Virtual</a></li>
+        <li class="active"><a href="map.html">Map</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
         <li><a href="archive.html">Archive</a></li>
-        <li class="active"><a href="calendar.html">Calendar</a></li>
       </ul>
+      <div class="nav-right">
+        <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+      </div>
     </nav>
   </header>
 
   <section class="section light">
     <h2>Sikkim Cultural Calendar</h2>
+
+        <!-- Festival Legend -->
+    <div id="festival-legend">
+    <h3>Festival Legend</h3>
+    <div class="legend-items">
+        <span class="legend-item" style="background:#FF7F50">Losar</span>
+        <span class="legend-item" style="background:#8FBC8F">Buddhist</span>
+        <span class="legend-item" style="background:#6495ED">Local</span>
+        <span class="legend-item" style="background:#FFD700">Dashain</span>
+        <span class="legend-item" style="background:#FF69B4">Tihar</span>
+    </div>
+    </div>
+
     <div id="calendar-container"></div>
+
+    <!-- Upcoming Events List -->
+    <div id="upcoming-events">
+      <h3>Upcoming Festivals</h3>
+      <ul id="event-list"></ul>
+    </div>
+
+    <!-- Festival Gallery -->
+    <h2 style="margin-top:40px;">Festival Gallery</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="festival-sikkim.jpg" alt="Pang Lhabsol">
+          <div class="swiper-caption">Pang Lhabsol – Masked warrior dance honoring Mt. Kanchenjunga</div>
+        </div>
+        <div class="swiper-slide">
+          <img src="navaratri-sikkim.jpg" alt="Dasain Festival">
+          <div class="swiper-caption">Dasain (Durga Puja) – Community worship & festivities</div>
+        </div>
+        <div class="swiper-slide">
+          <img src="Diwali-sikkim.avif" alt="Tihar Festival">
+          <div class="swiper-caption">Tihar (Deepawali) – Festival of lights & sibling bonds</div>
+        </div>
+      </div>
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
   </section>
 
-  <script>
-    // Initialize Calendar
-    document.addEventListener('DOMContentLoaded', function () {
-      const calendarEl = document.getElementById('calendar-container');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: [
-          { title: 'Losar Festival', start: '2025-02-27' },
-          { title: 'Saga Dawa', start: '2025-06-15' },
-          { title: 'Pang Lhabsol', start: '2025-09-11' }
-        ]
-      });
-      calendar.render();
-    });
-  </script>
+    <!-- FLOATING CHATBOT -->
+    <div class="chatbot-button" id="chatbot-btn">
+    <img src="AI-bot.png" alt="Chatbot">
+    </div>
 
+    <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">Ask Monastery360</div>
+    <div class="chat-messages" id="chat-messages">
+        <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+    </div>
+    
+  <script src="calendar-script.js"></script>
 </body>
 </html>
