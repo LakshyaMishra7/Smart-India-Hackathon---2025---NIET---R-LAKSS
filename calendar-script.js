@@ -193,3 +193,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+
+// ======================
+// CULTURAL ETIQUETTE TOGGLE
+// ======================
+document.addEventListener("DOMContentLoaded", () => {
+  const etiquetteSection = document.getElementById("cultural-etiquette");
+  const toggleBtn = etiquetteSection.querySelector(".toggle-btn");
+  const content = etiquetteSection.querySelector(".etiquette-content");
+
+  toggleBtn.addEventListener("click", () => {
+    etiquetteSection.classList.toggle("show");
+
+    if (etiquetteSection.classList.contains("show")) {
+      content.style.display = "block";
+    } else {
+      content.style.display = "none";
+    }
+  });
+});
