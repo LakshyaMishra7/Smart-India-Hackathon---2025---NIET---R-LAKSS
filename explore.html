@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Monasteries - Sikkim Tourism</title>
+  <link rel="stylesheet" href="explore-styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+      </div>
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="virtual.html">Virtual</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="archive.html">Archive</a></li>
+        <li class="active"><a href="explore.html">Explore</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay">
+        <img src="collage.png" alt="Sikkim cover">
+    </div>
+    <div class="hero-text">
+      <h1>Explore Sikkim's Monasteries</h1>
+      <p>Discover peace, spirituality, and heritage in the Himalayas</p>
+    </div>
+  </section>
+
+  <!-- Explore Section -->
+  <section class="section light">
+    <h2 class="section-title">Monasteries</h2>
+    <div class="card-grid">
+      
+      <!-- Card Template -->
+      <div class="monastery-card">
+        <img src="enchey.jpg" alt="Enchey Monastery">
+        <h3>Enchey Monastery</h3>
+        <button class="toggle-btn">View Details</button>
+        <div class="toggle-content">
+          <h4>History</h4>
+          <p>Built over 200 years ago, associated with Lama Drupthob Karpo, known for his flying powers.</p>
+          <h4>Architecture</h4>
+          <p>Traditional Tibetan style with ornate woodwork and images of protective deities.</p>
+          <h4>Festivals</h4>
+          <p>Hosts Chaam Dance Festival (Dec/Jan), celebrating victory of good over evil.</p>
+          <h4>Visitor Info</h4>
+          <p>3 km from Gangtok; best visited during festivals.</p>
+        </div>
+      </div>
+
+      <div class="monastery-card">
+        <img src="rumtek.jpg" alt="Rumtek Monastery">
+        <h3>Rumtek Monastery</h3>
+        <button class="toggle-btn">View Details</button>
+        <div class="toggle-content">
+          <h4>History</h4>
+          <p>Seat of the Karmapa; originally built in the 16th century, rebuilt in the 1960s.</p>
+          <h4>Architecture</h4>
+          <p>Massive Tibetan-style structure with golden stupa and intricate murals.</p>
+          <h4>Festivals</h4>
+          <p>Main site for Kagyu rituals, with traditional Cham dances.</p>
+          <h4>Visitor Info</h4>
+          <p>24 km from Gangtok; entry fee applies for tourists.</p>
+        </div>
+      </div>
+
+      <div class="monastery-card">
+        <img src="pemayangtse.jpg" alt="Pemayangtse Monastery">
+        <h3>Pemayangtse Monastery</h3>
+        <button class="toggle-btn">View Details</button>
+        <div class="toggle-content">
+          <h4>History</h4>
+          <p>Founded in the 17th century; one of the oldest monasteries of Sikkim.</p>
+          <h4>Architecture</h4>
+          <p>Known for its seven-tiered wooden structure "Zangdok Palri".</p>
+          <h4>Festivals</h4>
+          <p>Losar and Cham dance festivals draw many pilgrims.</p>
+          <h4>Visitor Info</h4>
+          <p>Located near Pelling; offers scenic views of Kanchenjunga.</p>
+        </div>
+      </div>
+
+      <div class="monastery-card">
+        <img src="tashiding.jpg" alt="Tashiding Monastery">
+        <h3>Tashiding Monastery</h3>
+        <button class="toggle-btn">View Details</button>
+        <div class="toggle-content">
+          <h4>History</h4>
+          <p>Built in 17th century; believed to be blessed by Guru Padmasambhava.</p>
+          <h4>Architecture</h4>
+          <p>Famous for chortens and "Thongwa Rangdol" stupa.</p>
+          <h4>Festivals</h4>
+          <p>Hosts Bumchu festival in February/March.</p>
+          <h4>Visitor Info</h4>
+          <p>40 km from Yuksom; accessible by road.</p>
+        </div>
+      </div>
+
+      <div class="monastery-card">
+        <img src="ralang.jpg" alt="Ralang Monastery">
+        <h3>Ralang Monastery</h3>
+        <button class="toggle-btn">View Details</button>
+        <div class="toggle-content">
+          <h4>History</h4>
+          <p>Built in 1995; important center of Kagyu tradition.</p>
+          <h4>Architecture</h4>
+          <p>Grand courtyard, giant prayer wheels, beautiful frescoes.</p>
+          <h4>Festivals</h4>
+          <p>Pang Lhabsol and Mahakala Dance celebrated here.</p>
+          <h4>Visitor Info</h4>
+          <p>6 km from Ravangla; panoramic views of the mountains.</p>
+        </div>
+      </div>
+
+          <!-- FLOATING CHATBOT -->
+    <div class="chatbot-button" id="chatbot-btn">
+    <img src="AI-bot.png" alt="Chatbot">
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">Ask Monastery360</div>
+    <div class="chat-messages" id="chat-messages">
+        <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
+    </div>
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </div>
+    </div>
+
+    </div>
+  </section>
+
+  <script src="explore-script.js"></script>
+</body>
+</html>
