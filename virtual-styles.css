@@ -1,0 +1,242 @@
+/* ================================
+   VIRTUAL-STYLES.CSS — Matches styles.css
+   Pastel / Rounded aesthetic + translucent navbar
+   ================================ */
+
+:root {
+  --mint: #77DD77;
+  --cream: #FDFBD4;
+  --aqua: #B3EBF2;
+  --white: #ffffff;
+  --text: #0d0d0a;
+  --muted: rgba(13,13,10,0.55);
+
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --gap: 1.25rem;
+  --container-w: 1200px;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; }
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--cream) 0%, #FFFDF6 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 86px; /* Space for fixed navbar */
+}
+
+/* ======================
+   NAVBAR (translucent)
+   ====================== */
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 14px;
+  margin: 0 auto;
+  max-width: var(--container-w);
+  height: 64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.8);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 20px rgba(13,13,10,0.06);
+  border: 1px solid rgba(13,13,10,0.03);
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+
+.nav-left { display:flex; align-items:center; gap:12px; }
+.nav-left .wheel{
+  width:42px; height:42px; border-radius:10px; object-fit:cover;
+  /* background: linear-gradient(180deg, var(--mint), var(--aqua)); */
+  padding:6px;
+  box-shadow: 0 6px 18px rgba(13,13,10,0.06);
+}
+
+
+.nav-center {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-center li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 8px 10px;
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.nav-center li.active a,
+.nav-center li a:hover {
+  background: rgba(119, 221, 119, 0.12);
+  transform: translateY(-2px);
+}
+
+/* narrator button same rounded aesthetic */
+#narrator-btn{
+  background: linear-gradient(180deg, var(--mint), #66cc66);
+  color: var(--white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(13,13,10,0.06);
+  cursor:pointer;
+  display:flex; gap:8px; align-items:center;
+  transition: transform 200ms ease, opacity 160ms ease;
+}
+#narrator-btn:hover { transform: translateY(-3px); opacity:0.98; }
+
+/* ======================
+   PAGE SHELL
+   ====================== */
+.section.light {
+  max-width: var(--container-w);
+  margin: 28px auto;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: calc(var(--radius-lg) + 4px);
+  box-shadow:
+    0 12px 30px rgba(13,13,10,0.06),
+    inset 0 -2px 10px rgba(13,13,10,0.02);
+  padding: 36px;
+  border: 1px solid rgba(13,13,10,0.03);
+}
+
+/* ======================
+   STREET VIEW HEADER
+   ====================== */
+.streetview-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.streetview-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+/* model-viewer styling (rounded + glowing accent) */
+model-viewer {
+  width: 100px;
+  height: 100px;
+  /* border-radius: 50%;
+  border: 3px solid var(--mint); */
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 6px 16px rgba(13,13,10,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+model-viewer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(13,13,10,0.12);
+}
+
+/* ======================
+   MODEL WRAPPER & CLOUD OVERLAY
+   ====================== */
+.model-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+}
+
+.model-wrapper model-viewer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.model-overlay {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%; /* slightly bigger for soft cloud effect */
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+/* Cloud floating animation */
+@keyframes cloudFloat {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.95; }
+  50%  { transform: translateX(-48%) translateY(-2px) scale(1.03); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.95; }
+}
+
+.cloud-animation {
+  animation: cloudFloat 6s ease-in-out infinite;
+}
+
+
+/* ======================
+   STREET VIEW CARDS
+   ====================== */
+.streetview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.streetview {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(13, 13, 10, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.streetview:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(13, 13, 10, 0.12);
+}
+
+.streetview h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.streetview iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(13,13,10,0.05);
+  transition: transform 0.3s ease;
+}
+.streetview iframe:hover { transform: scale(1.02); }
+
+/* ======================
+   ANIMATIONS
+   ====================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section.light, .streetview { animation: fadeInUp 0.6s ease both; }
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+@media (max-width: 768px) {
+  .section.light { padding: 24px; }
+  .streetview-header { flex-direction: column; text-align:center; }
+  model-viewer { width: 80px; height: 80px; }
+}
