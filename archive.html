@@ -1,35 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive - Sikkim Tourism</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Digital Archive – Gangtok | Sikkim Tourism</title>
 
-  <header>
-    <nav class="navbar">
-      <div class="nav-left"><img src="Untitled_design-removebg-preview.png" class="wheel"></div>
-      <ul class="nav-center">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="virtual.html">Virtual Tours</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li class="active"><a href="archive.html">Archive</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-      </ul>
-    </nav>
-  </header>
+        <link rel="stylesheet" href="archive-styles.css">
 
-  <section class="section dark">
-    <h2>Digi Archive</h2>
-    <div class="archive-gallery">
-      <img src="gangtok-heritage-walk.jpeg" alt="Archive 1">
-      <img src="perbing-heritage-walk.jpeg" alt="Archive 2">
-      <img src="gyalshing-heritage-walk.jpeg" alt="Archive 3">
-    </div>
-  </section>
+    </head>
+    <body>
 
-</body>
+        <div class="overlay">
+
+      <!-- NAVBAR -->
+        <header>
+            <nav class="navbar">
+            <div class="nav-left">
+                <img src="Untitled_design-removebg-preview.png" class="wheel" alt="Dharma Wheel">
+            </div>
+            <ul class="nav-center">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="virtual.html">Virtual</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li  class="active"><a href="archive.html">Archive</a></li>
+                <li><a href="explore.html">Explore</a></li>
+            </ul>
+            <div class="nav-right">
+                <button id="narrator-btn" class="narrator-toggle">🔊 Narrator: Off</button>
+            </div>
+            </nav>
+        </header>
+
+        <!-- Hero Image -->
+        <section class="hero-image">
+            <img 
+            src="https://i.pinimg.com/originals/dc/7d/36/dc7d36e85e63fff3d6475ce4cdad6b6d.jpg" 
+            alt="Gangtok Heritage View" 
+            />
+            <div class="hero-text">
+            Digital Archive – Gangtok
+            </div>
+        </section>
+
+            <main class="archive-row">
+
+                <!-- Archive 1: Gangtok -->
+                <section class="archive-column">
+                <img src="https://i.pinimg.com/236x/dc/7d/36/dc7d36e85e63fff3d6475ce4cdad6b6d.jpg" alt="Gangtok Archive" />
+                <h2>Gangtok: A Living Archive</h2>
+                <p>
+                    Gangtok is the capital of Sikkim, meaning “hill top”, located in the Himalayas. It is famous for its scenic views of Mt. Kanchenjunga, pleasant climate, and rich culture.
+                </p>
+                <h3>Map of Sikkim:</h3>
+                <p>The map of Sikkim helps travelers and researchers trace cultural sites, historical landmarks, and traditional routes across the state.</p>
+                <h3>Gangtok Heritage Walk:</h3>
+                <p>A curated walk through Gangtok’s streets showcasing colonial architecture, traditional markets, and stories of the past.</p>
+                <h3>Tourist Spots:</h3>
+                <ul>
+                    <li>MG Marg, Tsomgo Lake, Rumtek and Enchey Monasteries.</li>
+                </ul>
+                </section>
+
+                <!-- Archive 2: Pemayangtse and Sikkim Palace Archives -->
+                <section class="archive-column">
+                <img src="https://travelgangtok.com/uploads/2021/09/pelling-at-west-sikkim-travelgangtok-holidays-2.jpg" alt="Pemayangtse Monastery View" />
+                <h2>Pemayangtse & Sikkim Archives</h2>
+                <h3>Map of Sikkim</h3>
+                <p>
+                    The archives preserve old cartographic records, showing trade routes, settlements, and territorial changes over time.
+                </p>
+                <h3>Gangtok Heritage Walk</h3>
+                <p>
+                    Digitally documented heritage walks allow visitors to explore Gangtok’s historic lanes and cultural intersections virtually.
+                </p>
+                <h3>Lepcha Manuscript</h3>
+                <p>
+                    Rare Lepcha manuscripts stored here provide invaluable insights into early language, spirituality, and community life.
+                </p>
+                <h3>Sikkim Palace Archives</h3>
+                <p>
+                    Over 89,000 digitized documents from 1892–1986 in multiple languages provide insight into royal administration and law.
+                </p>
+                </section>
+
+                <!-- Archive 3: Gyalshing -->
+                <section class="archive-column">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SI93IjwQvowJLvRqdK4DqYdyz9zqk4AizQ&s" alt="Gyalshing View" />
+                <h2>Gyalshing: Cultural Heritage</h2>
+                <p>
+                    Located in West Sikkim, Gyalshing is renowned for its spiritual sites and preserved artifacts.
+                </p>
+                <h3>Map of Sikkim</h3>
+                <p>The Sikkim map highlights Gyalshing’s role as a hub connecting monasteries, trade centers, and cultural hotspots.</p>
+                <h3>Gangtok Heritage Walk</h3>
+                <p>Extends to Gyalshing, offering narratives of royal processions, cultural fairs, and historic settlements.</p>
+                <h3>Lepcha Manuscript</h3>
+                <p>The manuscripts provide context about Gyalshing’s place in Lepcha oral traditions, including legends and spiritual practices.</p>
+                <h3>Historical Documents & Artifacts</h3>
+                <ul>
+                    <li><strong>Sikkim State Archives:</strong> Collections of colonial-era treaties, photographs, and official correspondence.</li>
+                </ul>
+                </section>
+
+                <!-- Archive 4: LEGACY Of ROYAL SIKKIM-->
+                <section class="archive-column">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SI93IjwQvowJLvRqdK4DqYdyz9zqk4AizQ&s" alt="Gyalshing View" />
+                <h2>Legacy of Royal Sikkim 👑✨</h2>
+                <p>This group tells the story of Sikkim’s governance, sovereignty, and identity!</p>
+                <h3>Map of Sikkim</h3>
+                <p>"A kingdom drawn by nature and time."</p>
+                <p>Unfold the Map of Sikkim, a land cradled by the Himalayas. Every curve leads to a valley of legends, every border to breathtaking landscapes. Come trace the journey of a kingdom where nature and heritage live in harmony.</p>
+                <h3>Treaty of Tumlong</h3>
+                <p>"Where Sikkim’s history took a new turn."</p>
+                <p>Signed in 1861, the Treaty of Tumlong forever altered Sikkim’s destiny. This historic pact between the kingdom and the British reshaped its governance while leaving behind echoes of sovereignty and struggle. Today, it stands as a reminder of the resilience of a Himalayan kingdom.</p>
+                <h3>Royal Degree of the Chogyal</h3>
+                <p>"Echoes of royalty in the heart of Sikkim."</p>
+                <p>Step into the legacy of Sikkim’s Chogyals, the monarchs who once shaped the kingdom’s destiny. The royal decree echoes through monasteries, traditions, and the cultural spirit that still thrives today. Discover a heritage where power, faith, and history stand in harmony with the Himalayas.</p>
+                </ul>
+                </section>
+
+                <!-- Archive 5: Living traditions and trails-->
+                <section class="archive-column">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SI93IjwQvowJLvRqdK4DqYdyz9zqk4AizQ&s" alt="Gyalshing View" />
+                <h2>Living Traditions & Spiritual Trails 🕉🌄</h2>
+                <p>This group highlights spirituality, indigenous knowledge, and everyday heritage!</p>
+                <h3>Lepcha Manuscript</h3>
+                <p>The Sikkim map highlights Gyalshing’s role as a hub connecting monasteries, trade centers, and cultural hotspots.</p>
+                <h3>Buddhist Text Manuscripts</h3>
+                <p>Preserved in monasteries like Pemayangtse and Rumtek, these texts include scriptures, commentaries, and ritual manuals written in Tibetan script.</p>
+                <h3>Illuminated Texts</h3>
+                <p>Some manuscripts are decorated with gold, red, and blue inks, reflecting both artistry and devotion.</p>
+                <h3>Sacred Art & Knowledge</h3>
+                <ul>
+                    <li><strong>"Every manuscript of Sikkim is a living archive — blending spirituality, history, and art."</strong> Together, murals and manuscripts create a bridge between art, faith, and history!</li>
+                </ul>
+                </section>
+
+
+                
+
+            </main>
+        </div>
+
+            <!-- FLOATING CHATBOT -->
+        <div class="chatbot-button" id="chatbot-btn">
+        <img src="AI-bot.png" alt="Chatbot">
+        </div>
+
+        <div class="chatbot-window" id="chatbot-window">
+        <div class="chat-header">Ask Monastery360</div>
+        <div class="chat-messages" id="chat-messages">
+            <p><b>Bot:</b> Hi! How can I help you explore Sikkim’s monasteries today?</p>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+        </div>
+
+        <script src="archive-script.js"></script>
+
+    </body>
 </html>
